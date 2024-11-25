@@ -1,0 +1,76 @@
+---
+import type { Section } from "../../models/Models.ts";
+import AOS from "../AOS.astro";
+import SectionContentWrapper from "../SectionContentWrapper.astro";
+
+interface Props {
+  section: Section;
+}
+const { section } = Astro.props;
+const { subsections } = section;
+---
+
+<SectionContentWrapper
+  title={section.title}
+  sectionId={section.sectionId}
+  backgroundColor="bg-body-secondary"
+  >
+  <div class="row p-lg-4 justify-content-center gap-4 gap-sm-0">
+    <div class="col col-lg-6">
+      <AOS>
+        <p class="fs-5 text-body-secondary fw-bold">{section.subtitle}</p>
+        <div set:html={section.description.html} class="text-center text-md-start mb-5"/>
+        <div class="d-flex justify-content-center">
+          <img
+            alt={section.title}
+            class="object-fit-cover border img-fluid rounded-2 d-none d-lg-block"
+            src={section.backgroundImage?.url}
+            style="aspect-ratio:16/9; width: 500px;"
+          />
+        </div>
+      </AOS>
+    </div>
+
+    <div class="col col-lg-6">
+      <AOS>
+        <div class="accordion" id="faqAccordion">
+          {
+            subsections.map((subsection, index) => {
+              return (
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button gap-2 collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target={"#faq-question" + index}
+                      aria-expanded="false"
+                      aria-controls={"faq-question" + index}>
+                      <strong>{subsection.subtitle}</strong>
+                    </button>
+                  </h2>
+                  <div
+                    id={"faq-question" + index}
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                      <p>{subsection.description}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+      </AOS>
+    </div>
+  </div>
+</SectionContentWrapper>
+
+<style is:inline>
+  .accordion-button:not(.collapsed) {
+    background-color: transparent;
+    background: -webkit-linear-gradient(45deg, #0f2b55, #b3969e 99%);
+    color: white;
+  }
+</style>

@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+  :root {
+    --poppins: "Poppins", sans serif;
+    --fredoka: "Quicksand", sans serif;
+    --bg-emphasis: -webkit-linear-gradient(45deg, #042656, #b78f95, #c4c0bd 80%);
+  }
+
+  html * {
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  body {
+    overflow-x: hidden !important;
+    padding-right: 0 !important;
+    overflow-y: scroll !important;
+  }
+
+  .fs-5 text-body-secondary {
+    font-family: var(--fredoka);
+  }
+
+  h3.fs-5 text-body-secondary {
+    font-weight: 800;
+  }
+
+@media (min-width: 992px) {
+    .navbar {
+        .nav-link {
+            color: rgba(255, 255, 255, 0.5);
+
+            &:hover {
+                color: #ffffff;
+            }
+
+            &.active {
+                color: rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+        }
+
+        .nav-link::before {
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 991.8px) {
+    .navbar-collapse {
+        animation: none;
+        background-color: white;
+        color: black;
+    }
+
+    .card-text {
+        overflow: hidden;
+        -webkit-line-clamp: 10;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        white-space: normal;
+    }
+
+    .review-image {
+        width: 100px !important;
+        height: 100px !important;
+    }
+    .hero-fixed-bg {
+        height: 100vh;
+    }
+}
+
+.review-image {
+    width: 150px;
+    height: 150px;
+}
+
+.navbar-toggler {
+    &:focus,
+    &:active {
+        box-shadow: none;
+    }
+}
+
+header {
+    &.position-sticky {
+        z-index: 1;
+    }
+
+    .nav-item:not(.nav-theme-picker) {
+        .nav-link::before {
+            content: "";
+            position: sticky;
+            width: 100%;
+            height: 2px;
+            bottom: 6px;
+            top: 40px;
+            left: var(--bs-navbar-nav-link-padding-x);
+            right: var(--bs-navbar-nav-link-padding-x);
+            z-index: 1;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.3s ease;
+            background-color: var(--bs-body-color);
+        }
+    
+        .nav-link:hover::before,
+        .nav-link:active::before,
+        .nav-link.active::before {
+            transform: scaleX(1);
+        }
+    }
+
+    .toggle-icon {
+        display: inline-block;
+        --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M3 4h18v2H3zm0 7h18v2H3zm0 7h18v2H3z'/%3E%3C/svg%3E");
+        background-color: currentColor;
+        -webkit-mask-image: var(--svg);
+        mask-image: var(--svg);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-size: 100% 100%;
+        mask-size: 100% 100%;
+        width: 22px;
+        height: 22px;
+    }
+}
+
+
+footer .social-media {
+    svg {
+      width: 25px;
+      height: 25px;
+
+      path {
+        fill: var(--bs-body-color);
+      }
+    }
+  }
+  
+  .hero-fixed-bg {
+    position: relative;
+    opacity: 1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100vw;
+    background-color: var(--body-bg-rgb);
+    z-index: 0;
+      
+    .hero-title {
+        background: var(--bg-emphasis);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+.hero-fixed-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    transition: opacity .5s ease-out;
+    background-blend-mode: hard-light;
+}
+
+section {
+    .section-title {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .section-title h2::before,
+    .section-title h2::after {
+        content: "";
+        width: 50px;
+        height: 2px;
+        background: rgba(96, 96, 230, 0.646);
+        display: inline-block;
+    }
+    
+    .section-title h2::before {
+        margin: 0 15px 10px 0;
+    }
+    
+    .section-title h2::after {
+        margin: 0 0 10px 15px;
+    }
+}

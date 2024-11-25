@@ -1,0 +1,25 @@
+{
+  "name": "bah-starter-kit",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "vite preview --port 8080",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.3",
+    "@astrojs/mdx": "^3.1.9",
+    "@astrojs/netlify": "^5.5.1",
+    "@playform/inline": "^0.1.0",
+    "@popperjs/core": "^2.11.8",
+    "aos": "^2.3.4",
+    "astro": "^4.14.5",
+    "bootstrap": "^5.3.3",
+    "marked": "^15.0.0",
+    "swiffy-slider": "^1.6.0",
+    "typescript": "^5.5.4"
+  }
+}

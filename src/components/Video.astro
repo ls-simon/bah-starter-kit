@@ -1,0 +1,12 @@
+---
+const { url, title } = Astro.props;
+---
+
+<div class="ratio ratio-16x9 mw-100">
+  <iframe
+    src={url}
+    title={title}
+    allow="accelerometer; autoplay;"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen></iframe>
+</div>

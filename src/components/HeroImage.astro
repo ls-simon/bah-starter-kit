@@ -1,0 +1,31 @@
+---
+interface Props {
+  backgroundImage: string;
+  shape?: string;
+  height?: string;
+}
+
+const { shape, backgroundImage, height } = Astro.props;
+---
+<div class="hero-fixed-bg">
+  <slot/>
+</div>
+
+<style define:vars={{shape: shape, backgroundImage: `url(${backgroundImage})`, height: height}}>
+  .hero-fixed-bg {
+    height: var(--height);
+  }
+  @media (min-width: 992px) {
+    .hero-fixed-bg::before {
+        background-image: linear-gradient(rgb(0 0 0 / 35%), rgb(1 1 1 / 21%)), var(--backgroundImage);
+        clip-path: var(--shape);        
+    }
+  }
+
+  @media (max-width: 991.9px) {
+    .hero-fixed-bg::before {
+        background-image: var(--backgroundImage);        
+    }
+  }
+
+</style>

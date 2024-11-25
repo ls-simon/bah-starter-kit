@@ -1,0 +1,12 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import SectionRenderer from "../components/SectionRenderer.astro";
+---
+
+<MainLayout title="Website title">
+  <Navbar />
+  <div data-bs-spy="scroll" data-bs-target="#navbar-scroll" data-bs-smooth-scroll="true">
+    <SectionRenderer/>
+  </div>
+</MainLayout>

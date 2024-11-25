@@ -1,0 +1,25 @@
+---
+import SocialMediaBar from "./SocialMediaBar.astro";
+import { getFooter } from "../scripts/hygraph";
+
+const footerData = await getFooter();
+const footer = footerData?.data?.footers[0];
+---
+
+
+<div class="container py-3 my-4">
+  <footer
+    id="footer"
+    class="align-items-center border-top d-flex flex-column flex-md-row flex-md-wrap gap-3 gap-lg-0 justify-content-between my-4 py-3 text-body-secondary">
+    <span>{footer.name}</span>
+
+    <a
+      href="mailto:snackpatrolbooking@gmail.com"
+      target="_blank"
+      class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+      {footer.email}  
+    </a>
+
+    <SocialMediaBar />
+  </footer>
+</div>

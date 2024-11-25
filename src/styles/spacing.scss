@@ -1,0 +1,29 @@
+
+.row {
+    --bs-gutter-x: 0rem !important;
+    --bs-gutter-y: 2rem !important;
+}
+
+section { 
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    .section-title .fs-5 text-body-secondary {
+        margin-bottom: var(--bs-gutter-y);
+    }
+
+    .row {
+        padding: 1.5rem;
+    }
+
+    .col,
+    [class^="col-"] {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+ 
+    p, .fs-5 text-body-secondary {
+        max-width: 60ch;
+    }
+}

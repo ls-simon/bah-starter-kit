@@ -1,0 +1,21 @@
+---
+import type { Review } from "../models/Models.ts";
+import ReviewStars from "./ReviewStars.astro";
+
+interface Props {
+  review: Review;
+}
+const { review } = Astro.props;
+const { name, location, text, date, stars } = review;
+---
+
+<div class="col-10 m-auto">
+  <h4 class="card-title text-muted">{name}</h4>
+  <p class="text-muted">{location}</p>
+  <p class="card-text mw-100">{text}</p>
+  <div class="d-flex justify-content-between">
+    <ReviewStars stars={stars}/>
+    <div class="text-muted small text-end m-0 py-2"><i>{date}</i></div>
+  </div>
+
+</div>

@@ -1,0 +1,57 @@
+---
+import type { Section } from "../../models/Models.ts";
+import { marked } from "marked";
+import AOS from "../AOS.astro";
+import SectionContentWrapper from "../SectionContentWrapper.astro";
+import Video from "../Video.astro";
+interface Props {
+  section: Section;
+}
+const { section } = Astro.props;
+const { subsections } = section;
+const videoSubsection = subsections.find(
+  (s) => s.subsectionId == "music-video"
+);
+const descriptionSubsection = subsections.find(
+  (s) => s.subsectionId == "music-description"
+);
+---
+
+<SectionContentWrapper
+  title={section.title}
+  sectionId={section.sectionId}
+  subtitle={section.subtitle}
+  backgroundColor="bg-body"
+>
+  <div
+    class="row p-lg-4 flex-column flex-md-row-reverse justify-content-center"
+  >
+    {
+      videoSubsection && (
+        <div class="col col-lg-6">
+          <AOS delay={400}>
+            {videoSubsection.link && (
+              <Video
+                url={videoSubsection.link.trim()}
+                title={videoSubsection.title}
+              />
+            )}
+          </AOS>
+        </div>
+      )
+    }
+    
+    {
+      descriptionSubsection && (
+        <div class="col col-lg-6">
+          <AOS>
+            <p class="fs-5 text-body-secondary fw-bold">
+              {descriptionSubsection.title}
+            </p>
+            <div set:html={marked.parse(descriptionSubsection.description)} />
+          </AOS>
+        </div>
+      )
+    }
+  </div>
+</SectionContentWrapper>

@@ -1,0 +1,46 @@
+---
+const { title } = Astro.props;
+import type { SoMeLink } from "../models/Models";
+import { getSoMeLinks } from "../scripts/hygraph.ts";
+const someData = await getSoMeLinks();
+const someLinks = someData?.data.socialmedias as SoMeLink[];
+---
+
+<div class="d-flex flex-column gap-2 mt-0">
+  <div class="text-center fw-bold text-muted">{title}</div>
+  <div class="social-media d-flex justify-content-center gap-2">
+    {
+      someLinks &&
+        someLinks.map((some) => {
+          return (
+            <a
+              href={some.link}
+              title={some.title}
+              id={some.someId}
+              set:html={some.icon}
+            />
+          );
+        })
+    }
+  </div>
+</div>
+
+<style is:inline>
+  .social-media {
+    
+    svg {
+      opacity: 0.75;
+      width: 30px;
+      height: 30px;
+
+      path {
+        fill: white;
+      }
+    }
+    svg:hover {
+      opacity: 1; 
+    }
+    
+
+  }
+</style>

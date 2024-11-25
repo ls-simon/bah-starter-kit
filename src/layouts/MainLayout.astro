@@ -1,0 +1,48 @@
+---
+interface Props {
+  title: string;
+}
+import "../styles/bootstrap.scss";
+import "../styles/index.scss";
+import "../styles/animations.scss";
+import "../styles/theme.scss";
+import "../styles/spacing.scss";
+import "swiffy-slider/css";
+import "aos/dist/aos.css";
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="My Website" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js"
+      crossorigin="anonymous"
+      defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
+      crossorigin="anonymous"
+      defer></script>
+      <meta name="generator" content={Astro.generator} />
+      <title>{title}</title>
+    </head>
+    <body
+    data-aos-easing="ease-out-back"
+    data-aos-duration="1000"
+    data-aos-delay="0"
+    >
+    <slot />
+  </body>
+
+  <script src="../scripts/themePicker.ts"></script>
+  <script src="../scripts/aos.js"></script>
+</html>
