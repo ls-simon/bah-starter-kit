@@ -21,11 +21,11 @@ This kit provides a pre-configured static single page Astro site setup designed 
 
 ![](previews/bah-mobile.gif)
 
-**Dark mode**. Easy re-mapping of Bootstrap color variables (`theme.scss`) for light/dark theme and reusable `ThemePicker` component. Animation keyframes fades in selected theme.
+**Dark mode** Easy re-mapping of Bootstrap color variables (`theme.scss`) for light/dark theme and reusable `ThemePicker` component. Animation keyframes fades in selected theme.
 
 ![](previews/bah-darkmode.gif)
 
-Scrollspy integrated navbar experience. AOS wrapper component with optional parameters to animate elements.
+**Scrollspy** integrated navbar experience. **AOS wrapper component** with optional parameters to animate elements.
 
 ![](previews/bah-scroll.gif)
 
@@ -59,8 +59,7 @@ As a base for the data models in Hygraph, each section on the site is a `Section
 
 A `Section` have can have a title, subtitle, background image (used as example in the `HeroImage` component) and `n` `Subsections`, which can be utilized as columns. 
 
-Each section is for now called statically in `SectionRenderer.astro`, 
-
+Each section is called dynamically in `SectionRenderer.astro` as a switch. For future work `componentLoader.ts` should provide functionality for setting up dynamic loading based on file names (which isn't quite supported yet for static sites, referring to [this issue](https://github.com/withastro/astro/issues/4863) and [this suggestion](https://github.com/withastro/roadmap/discussions/1054)).
 
 ## Deployment
 
@@ -79,4 +78,4 @@ You are more than welcome to contribute to making this project even better! A no
 - Improve API stability 
 - A 100 Lighthouse score
 - Refactoring contributions in general
-- Row and column implementation in Footer scheme
+- Row and column implementation in Footer schema
